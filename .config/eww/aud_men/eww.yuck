@@ -1,0 +1,63 @@
+(
+    defwindow audio_menu
+    :monitor 0
+    :exclusive "false"
+    :stacking "overlay"
+    ;; Changes are in this geometry block
+    :geometry (geometry :anchor "top right"
+                        :x "200px"
+                        :y "10px"
+                        :width "10%"
+                        :height "15%")
+    (audio_menu)
+)
+
+(
+    defwidget audio_menu []
+    (
+        box :class "parent" :space-evenly "false" :orientation "v"
+        (
+            ;; HEADER WIDGET
+            box :class "header" :space-evenly "false"
+
+            ;; Child 1: The title
+            (label :text " " :class "title")
+
+            ;; Child 2: The expanding spacer to push the button to the right
+            (box :hexpand "true")
+
+            ;; Child 3: The exit button
+            (
+                button
+                :class "exit"
+                :onclick "eww close audio_menu --config $HOME/.config/eww/aud_men/"
+                (label :text " ")
+            )
+        )
+        (
+            ;; BODY WIDGET
+            box :class "body" :space-evenly "false" :orientation "v"
+            (
+                button
+                :class "button"
+                :vexpand "false"
+                :onclick "scripts/set_audio_device.sh bluez_output.F8_5C_7E_67_EB_48.1"
+                (label :text "󰓃   JBL GO")
+            )
+            (
+                button
+                :class "button"
+                :hexpand "false"
+                :onclick "scripts/set_audio_device.sh bluez_output.02_00_94_04_AA_1A.1"
+                (label :text "󰋋   Boat Nirvana")
+            )
+            (
+                button
+                :class "button"
+                :vexpand "false"
+                :onclick "scripts/set_audio_device.sh alsa_output.pci-0000_06_00.6.analog-stereo"
+                (label :text "   Laptop Speakers")
+            )
+        )
+    )
+)

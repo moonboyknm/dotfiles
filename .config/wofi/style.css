@@ -1,0 +1,71 @@
+/*
+ * Wofi Configuration - Neon Red & Black Theme
+ */
+
+/* --- Main Window --- */
+window {
+    background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent black background */
+    border: 2px solid #ff0000;            /* Neon red border */
+    border-radius: 15px;                  /* Rounded corners */
+    font-family: "JetBrainsMono Nerd Font";
+}
+
+/* --- Input Bar --- */
+#input {
+    margin: 0px;
+    padding: 0px;
+    background-color: transparent;
+    color: transparent;
+    border: none;
+    border-radius: 0px;
+    font-size: 0px;
+    min-height: 0px;
+    opacity: 0;
+}
+
+/* --- Inner Box (holds the list) --- */
+#inner-box {
+    margin: 10px;
+    padding: 5px;
+    background-color: transparent;
+}
+
+/* --- Outer Box (main container) --- */
+#outer-box {
+    margin: 0px;
+    padding: 10px;
+    background-color: transparent;
+}
+
+/* --- Scrollbar --- */
+#scroll {
+    background-color: transparent;
+}
+
+/* --- List Entries --- */
+#entry {
+    padding: 10px;
+    background-color: transparent;
+    color: #ffffff;
+    border-radius: 8px;
+}
+
+/* --- Selected Entry --- */
+#entry:selected {
+    background-color: #ff0000; /* Neon red background */
+    color: #000000;            /* Black text for contrast */
+    text-shadow: 0 0 10px #ff0000; /* Neon glow effect */
+}
+
+/* --- Text in Entries --- */
+#text {
+    padding: 5px;
+    background-color: transparent;
+    color: inherit; /* Inherits color from #entry or #entry:selected */
+}
+
+/* --- Image in Entries (if any) --- */
+#img {
+    margin-right: 10px;
+}
+

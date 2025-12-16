@@ -1,0 +1,100 @@
+/*
+ * Rofi File Search Theme
+ * Based on Neon Red Theme
+ */
+
+* {
+    /* --- Colors --- */
+    background:                  rgba(18, 18, 18, 0.95);
+    background-alt:              rgba(28, 28, 28, 0.98);
+    foreground:                  #FFFFFF;
+    red:                         #FF3131; /* Brighter Neon Red */
+    border-color:                @red;
+
+    /* --- General --- */
+    background-color:            @background;
+    text-color:                  @foreground;
+    border:                      0;
+    margin:                      0;
+    padding:                     0;
+    spacing:                     0;
+}
+
+window {
+    width:                       45%;
+    /* height is dynamic based on listview, but we can constrain it if needed. 
+       Let's rely on lines in listview for height control or set a max-height. */
+    location:                    center;
+    anchor:                      center;
+    border:                      2px;
+    border-radius:               15px;
+    border-color:                @border-color;
+    padding:                     20px;
+    transparency:                "real";
+}
+
+mainbox {
+    children:                    [ inputbar, listview ];
+    spacing:                     15px;
+}
+
+inputbar {
+    enabled:                     true;
+    children:                    [ prompt, entry ];
+    background-color:            @background-alt;
+    border-radius:               10px;
+    padding:                     10px;
+}
+
+prompt {
+    background-color:            @red;
+    padding:                     8px 12px;
+    text-color:                  @foreground;
+    border-radius:               8px;
+    margin:                      0px 10px 0px 0px;
+}
+
+entry {
+    background-color:            transparent;
+    text-color:                  @foreground;
+    placeholder:                 "Search...";
+    placeholder-color:           grey;
+    vertical-align:              0.5;
+}
+
+listview {
+    layout:                      vertical;
+    spacing:                     5px;
+    lines:                       7;
+    columns:                     1;
+    fixed-height:                false;
+    scrollbar:                   false;
+}
+
+element {
+    orientation:                 horizontal;
+    padding:                     10px;
+    border-radius:               10px;
+    background-color:            transparent;
+    cursor:                      pointer;
+    spacing:                     10px;
+}
+
+element-text {
+    background-color:            inherit;
+    text-color:                  inherit;
+    font:                        "JetBrainsMono Nerd Font 12";
+    vertical-align:              0.5;
+}
+
+element-icon {
+    background-color:            inherit;
+    text-color:                  inherit;
+    size:                        1.5em;
+    vertical-align:              0.5;
+}
+
+element.selected {
+    background-color:            @red;
+    text-color:                  @foreground;
+}

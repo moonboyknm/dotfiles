@@ -1,0 +1,90 @@
+* {
+font-family: "JetBrainsMono Nerd Font", "monospace";
+color: #FFFFFF;
+}
+
+.notification {
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 0, 0, 0.8);
+  border-radius: 12px;
+}
+
+.notification-content {
+  background: transparent;
+}
+
+.notification-row:focus,
+.notification-row:hover {
+  background: rgba(255, 0, 0, 0.2);
+}
+
+.close-button {
+  background: transparent;
+  color: #FFFFFF;
+  border: none;
+}
+
+.control-center {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 0, 0, 0.8);
+}
+
+.control-center-clear-all,
+.widget-title > button,
+.widget-buttons-grid > flowbox > flowboxchild > button,
+.notification-default-action {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 0, 0, 0.8);
+  border-radius: 5px;
+}
+
+.control-center-clear-all:hover,
+.widget-title > button:hover,
+.widget-buttons-grid > flowbox > flowboxchild > button:hover,
+.notification-default-action:hover {
+  background: rgba(255, 0, 0, 0.2);
+}
+
+.summary {
+  font-weight: bold;
+}
+
+.widget-backlight {
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 0, 0, 0.8);
+  border-radius: 12px;
+  padding: 8px;
+  margin: 8px;
+}
+
+/* Styling for Sliders (Volume, Brightness) */
+.widget-volume scale trough,
+.widget-backlight scale trough {
+  background-image: none;
+  background-color: rgba(255, 0, 0, 0.3);
+  border-radius: 12px;
+  min-height: 8px;
+  min-width: 8px;
+  border: none;
+}
+
+.widget-volume scale trough progress,
+.widget-backlight scale trough progress {
+  background-image: none;
+  background-color: #ff0000;
+  border-radius: 12px;
+  min-height: 8px;
+  min-width: 8px;
+}
+
+.widget-volume scale slider,
+.widget-backlight scale slider {
+  background-image: none;
+  background-color: #ff0000;
+  border-radius: 50%;
+  min-height: 18px;
+  min-width: 18px;
+  border: none;
+  box-shadow: 0 0 8px #ff0000, 0 0 10px rgba(255, 0, 0, 0.7);
+}

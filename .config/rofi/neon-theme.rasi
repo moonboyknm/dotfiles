@@ -1,0 +1,110 @@
+/*
+ * Rofi Power Menu - Neon Red Theme
+ *
+ * A horizontal, icon-focused theme with a neon red, black, and white aesthetic.
+ * This theme is designed to be used with the accompanying `powermenu.sh` script.
+ *
+ * Author: Gemini
+ * Requires: A Nerd Font for the icons to render correctly.
+ */
+
+* {
+    /* --- Colors --- */
+    background:                  rgba(18, 18, 18, 0.95); /* A slightly off-black, semi-transparent background */
+    background-alt:              rgba(28, 28, 28, 0.98); /* A solid, slightly lighter black for elements */
+    foreground:                  #FFFFFF;
+    red:                         #E52B50; /* A vibrant, "neon" red (Amranth) */
+    border-color:                @red;
+
+    /* --- General --- */
+    background-color:            @background;
+    text-color:                  @foreground;
+    border:                      0;
+    margin:                      0;
+    padding:                     0;
+    spacing:                     0;
+}
+
+window {
+    /* --- Window Settings --- */
+    /* Adjust width to fit the number of your power menu options */
+    width:                       35%;
+    location:                    center;
+    anchor:                      center;
+    border:                      2px;
+    border-radius:               15px; /* More rounded corners */
+    border-color:                @border-color;
+    padding:                     20px;
+    /* You must have a compositor (like picom) running for transparency */
+    transparency:                "real";
+}
+
+/* The main container for all elements */
+mainbox {
+    children:                    [ listview ];
+    spacing:                     15px;
+}
+
+/* Hide the input bar, as it's not needed for a click-only menu */
+inputbar {
+    enabled:                     false;
+}
+
+prompt {
+    background-color:            @red;
+    padding:                     8px;
+    text-color:                  @foreground;
+    border-radius:               8px;
+    margin:                      0px 10px;
+}
+
+/* Container for the options */
+listview {
+    layout:                      horizontal;
+    spacing:                     15px;
+    lines:                       1;
+    /* Set columns to the number of options you have */
+    columns:                     6;
+    fixed-height:                true;
+    fixed-columns:               true;
+    horizontal-align:            0.5;
+    vertical-align:              0.5;
+}
+
+/* Individual power menu options */
+element {
+    orientation:                 vertical; /* Stack icon and text vertically */
+    padding:                     20px 10px;
+    border-radius:               10px;
+    background-color:            @background-alt;
+    cursor:                      pointer;
+    spacing:                     10px;
+}
+
+element-text {
+    background-color:            inherit;
+    text-color:                  inherit;
+    /* Make sure to use a Nerd Font to see the icons */
+    font:                        "JetBrainsMono Nerd Font 10"; /* Smaller font for labels */
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+}
+
+element-icon {
+    background-color:            inherit;
+    text-color:                  inherit;
+    /* Make sure to use a Nerd Font to see the icons */
+    font:                        "JetBrainsMono Nerd Font 24";
+    size:                        3ch; /* Adjust icon size */
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+    cursor:                      pointer;
+}
+
+/* Style for the selected option */
+element.selected {
+    background-color:            @red;
+    text-color:                  @foreground;
+    border-color:                @foreground;
+    border:                      0px;
+}

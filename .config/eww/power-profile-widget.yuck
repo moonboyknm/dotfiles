@@ -1,0 +1,13 @@
+(defpoll power_profile_name :interval "2s"
+  "bash ./power-profile.sh get")
+
+(defpoll power_profile_icon :interval "2s"
+  "bash ./power-profile.sh icon")
+
+(defwidget power_profile []
+  (eventbox :onclick "bash ./power-profile.sh cycle"
+            :tooltip "Power Profile: ${power_profile_name}"
+    (box :orientation "h"
+         :class "power-box power-box-${power_profile_name}"
+      (label :text power_profile_icon)
+      (label :text power_profile_name))))

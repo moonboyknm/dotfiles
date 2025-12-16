@@ -1,0 +1,104 @@
+{
+    // Waybar Configuration for Hyprland with Nerd Font Icons
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "spacing": 2,
+    "margin-top": 10,
+    "margin-left": 10,
+    "margin-right": 10,
+
+    // Module layout
+    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-center": ["clock"],
+    "modules-right": ["custom/spotify", "custom/swaync", "custom/idle_inhibitor", "custom/audio", "custom/bluetooth", "pulseaudio", "battery", "tray"],
+
+    // Left modules
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "1": "1", "2": "2", "3": "3", "4": "4", "5": "5", "6": "6", "7": "7", "8": "8", "9": "9",
+            "10": "Indicators", "urgent": "", "focused": "", "default": ""
+        }
+    },
+    "hyprland/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "hyprland/window": {
+        "format": "{}",
+        "max-length": 50,
+        "separate-outputs": true
+    },
+    "clock": {
+        "timezone": "Asia/Kolkata",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%H:%M}",
+        "format-alt": " {:%Y-%m-%d}"
+    },
+
+    // Right modules
+    "custom/idle_inhibitor": {
+        "format": "{text}", // Display raw text output
+        // Removed "format-icons"
+        "exec": "bash /home/moonboyknm/.config/waybar/Scripts/toggle_hypridle_inhibit.sh status",
+        "on-click": "bash /home/moonboyknm/.config/waybar/Scripts/toggle_hypridle_inhibit.sh toggle",
+        "interval": 200, // ADDED THIS LINE: refresh every 200 milliseconds
+        "tooltip": true,
+        "tooltip-format": "Idle Inhibition: {text}"
+    },
+    "custom/audio": {
+        "format": "󰓃",
+        "tooltip": "true",
+        "tooltip-format": "Open Audio Menu",
+        "on-click": "eww open audio_menu --toggle --config ~/.config/eww/aud_men/"
+    },
+    "custom/bluetooth": {
+        "format": "",
+        "tooltip": "true",
+        "tooltip-format": "Open Blueman Manager",
+        "on-click": "~/.config/waybar/Scripts/blueman.sh"
+    },
+    "tray": {
+        "icon-size": 20,
+        "spacing": 10
+    },
+    "battery": {
+        "states": { "good": 95, "warning": 30, "critical": 15 },
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": "󰂄 {capacity}%",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["", "", "", "", ""]
+    },
+
+    "pulseaudio": {
+        "scroll-step": 5,
+        "format": "{icon}  {volume}%",
+        "format-bluetooth": "󰂰 {volume}%",
+        "format-bluetooth-muted": "󰂰 󰖁",
+        "format-muted": "󰖁",
+        "format-source": " {volume}%",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "", "hands-free": "󰋎", "headset": "󰋎", "phone": "",
+            "portable": "", "car": "", "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/spotify": {
+        "format": " {}",
+        "exec": "/home/moonboyknm/.config/waybar/Scripts/spotify.sh",
+        "on-click": "playerctl play-pause",
+        "tooltip": false,
+        "interval": 1,
+        "max-length": 50,
+        "return-type": "text"
+    },
+    "custom/swaync": {
+        "format": " {}",
+        "on-click": "swaync-client -t",
+        "tooltip": "false"
+    }
+}

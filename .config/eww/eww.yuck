@@ -1,0 +1,11 @@
+;; Master eww.yuck file
+;; This file includes all your separate widget configurations and styles.
+;; Place this in ~/.config/eww/
+
+;; --- Include Stylesheets ---
+(include "./powermenu/eww.scss")
+(include "./aud_men/eww.scss")
+
+;; --- Include Widget Definitions ---
+(include "./powermenu/eww.yuck")
+(include "./aud_men/eww.yuck")
